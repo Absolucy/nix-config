@@ -54,9 +54,15 @@
 
   homebrew = {
     enable = true;
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
-    # onActivation.cleanup = "uninstall";
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "uninstall";
+      extraEnv = {
+        HOMEBREW_ASK = "1";
+        HOMEBREW_NO_ENV_HINTS = "1";
+      };
+    };
     brews = [
       "mole"
     ];
